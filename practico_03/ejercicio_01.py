@@ -7,9 +7,14 @@
 
 # Implementar la funcion borrar_tabla, que borra la tabla creada anteriormente.
 
-
+import sqlite3
+conexion = sqlite3.connect(basedatos.db)
+c=conexion.cursor()
 def crear_tabla():
-    pass
+    c.execute('''CEATE TABLE persona
+                (idPersona integer PRIMARY KEY AUTOINCREMENT,
+                
+                )''')
 
 
 def borrar_tabla():
@@ -23,3 +28,5 @@ def reset_tabla(func):
         func()
         borrar_tabla()
     return func_wrapper
+
+

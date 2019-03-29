@@ -8,15 +8,44 @@
 # - avance(): indica que porcentaje de la carrera tiene aprobada.
 # - edad_ingreso(): indica que edad tenia al ingresar a la carrera (basándose en el año actual).
 
+import time
+class Persona:
 
-class Estudiante:
+    def __init__(self,nombre,edad,sexo,peso,altura,dni):
+        self.nombre=nombre
+        self.edad=edad
+        self.sexo=sexo
+        self.peso=peso
+        self.altura=altura
+        self.dni=dni
 
-    def __init__(self, carrera, anio, cantidad_materias, cantidad_aprobadas):
-        pass
+    def print_data(self):
+        print('Nombre:',self.nombre)
+        print('Edad:',self.edad)
+        print('Sexo:',self.sexo)
+        print('Peso:',self.peso,'Kg')
+        print('Altura:',self.altura,'m')
+        print('DNI:',self.dni)
+
+class Estudiante(Persona):
+
+    def __init__(self,nombre,edad,sexo,peso,altura,dni,carrera,anioIngreso,cantidadMaterias,cantidadMateriasAprobadas):
+        Persona.__init__(self,nombre,edad,sexo,peso,altura,dni)
+        self.carrera=carrera
+        self.anioIngreso=anioIngreso
+        self.cantidadMaterias=cantidadMaterias
+        self.cantidadMateriasAprobadas=cantidadMateriasAprobadas
 
     def avance(self):
-        pass
+        porcentaje=('{0:.2f}'.format((self.cantidadMateriasAprobadas/self.cantidadMaterias)*100))
+        return porcentaje
 
-    # implementar usando modulo datetime
     def edad_ingreso(self):
-        pass
+        edadIng=(self.edad-(int(time.strftime('%Y'))-self.anioIngreso))
+        return edadIng
+
+estudiante=Estudiante('Agustin Yurescia',22,'H',69.60,1.75,'39.291.780','ISI',2015,41,27)
+assert estudiante.edad_ingreso() == 18
+assert estudiante.avance() == '65.85'
+
+
