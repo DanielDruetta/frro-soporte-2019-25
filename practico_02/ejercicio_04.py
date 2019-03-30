@@ -9,28 +9,12 @@
 # - edad_ingreso(): indica que edad tenia al ingresar a la carrera (basándose en el año actual).
 
 import time
-class Persona:
-
-    def __init__(self,nombre,edad,sexo,peso,altura,dni):
-        self.nombre=nombre
-        self.edad=edad
-        self.sexo=sexo
-        self.peso=peso
-        self.altura=altura
-        self.dni=dni
-
-    def print_data(self):
-        print('Nombre:',self.nombre)
-        print('Edad:',self.edad)
-        print('Sexo:',self.sexo)
-        print('Peso:',self.peso,'Kg')
-        print('Altura:',self.altura,'m')
-        print('DNI:',self.dni)
+from practico_02.ejercicio_03 import Persona
 
 class Estudiante(Persona):
 
-    def __init__(self,nombre,edad,sexo,peso,altura,dni,carrera,anioIngreso,cantidadMaterias,cantidadMateriasAprobadas):
-        Persona.__init__(self,nombre,edad,sexo,peso,altura,dni)
+    def __init__(self,nombre,edad,sexo,peso,altura,carrera,anioIngreso,cantidadMaterias,cantidadMateriasAprobadas):
+        Persona.__init__(self,nombre,edad,sexo,peso,altura)
         self.carrera=carrera
         self.anioIngreso=anioIngreso
         self.cantidadMaterias=cantidadMaterias
@@ -44,7 +28,7 @@ class Estudiante(Persona):
         edadIng=(self.edad-(int(time.strftime('%Y'))-self.anioIngreso))
         return edadIng
 
-estudiante=Estudiante('Agustin Yurescia',22,'H',69.60,1.75,'39.291.780','ISI',2015,41,27)
+estudiante=Estudiante('Agustin Yurescia',22,'H',69.60,1.75,'ISI',2015,41,27)
 assert estudiante.edad_ingreso() == 18
 assert estudiante.avance() == '65.85'
 
