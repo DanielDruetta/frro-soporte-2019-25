@@ -11,13 +11,11 @@ conn = sqlite3.connect('tabla.db')
 cur = conn.cursor()
 
 def actualizar_persona(id_persona, nombre, nacimiento, dni, altura):
-    cur.execute("SELECT * from tablaPersona where idPersona=?", (id_persona,))
-    conn.commit()
-    a = cur.fetchone()
-    if a is None:
+    existe=buscar_persona(id_persona)
+    if existe is False:
         return False
     else:
-        cur.execute("UPDATE tablaPersona SET nombre=?, fechaNacimiento=?, dni=?, altura=? ", (nombre, nacimiento, dni, altura,))
+        cur.execute("UPDATE tablaPersona SET nombre=?, fechaNacimiento=?, dni=?, altura=? WHERE idPersona=? ", (nombre, nacimiento, dni, altura,id_persona,))
         conn.commit()
         return True
 
