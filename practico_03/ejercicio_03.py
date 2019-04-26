@@ -21,13 +21,10 @@ def borrar_persona(id_persona):
         conn.commit()
         return True
 
-
-
 @reset_tabla
 def pruebas():
-    agregar_persona('juan perez', '05/12/88', 32165498, 180)
-    assert borrar_persona()
+    assert borrar_persona(agregar_persona('juan perez', datetime.datetime(1988,5,12), 32165498, 180))
     assert borrar_persona(12345) is False
 
-if __name__ == 'main':
+if __name__ == '__main__':
     pruebas()

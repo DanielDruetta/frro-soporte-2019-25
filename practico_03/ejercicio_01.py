@@ -4,7 +4,7 @@ conn = sqlite3.connect('tabla.db')
 cur = conn.cursor()
 
 def crear_tabla():
-    cur.execute('CREATE TABLE IF NOT EXISTS tablaPersona(idPersona INTEGER PRIMARY KEY AUTOINCREMENT, nombre TEXT, fechaNacimiento DATE, dni INT, altura INT)')
+    cur.execute('CREATE TABLE IF NOT EXISTS tablaPersona(idPersona INTEGER PRIMARY KEY AUTOINCREMENT, nombre TEXT, fechaNacimiento TEXT, dni INT, altura INT)')
 
 def borrar_tabla():
     cur.execute('DROP TABLE IF EXISTS tablaPersona')

@@ -35,13 +35,13 @@ def listar_pesos(id_persona):
 
 @reset_tabla
 def pruebas():
-    id_juan = agregar_persona('juan perez', datetime.date(1988, 5, 15), 32165498, 180)
-    agregar_peso(id_juan, datetime.date(2018, 5, 1), 80)
-    agregar_peso(id_juan, datetime.date(2018, 6, 1), 85)
+    id_juan = agregar_persona('juan perez', datetime.datetime(1988, 5, 15), 32165498, 180)
+    agregar_peso(id_juan, datetime.datetime(2018, 5, 1), 80)
+    agregar_peso(id_juan, datetime.datetime(2018, 6, 1), 85)
     pesos_juan = listar_pesos(id_juan)
     pesos_esperados = [
-        ('2018-05-01', 80),
-        ('2018-06-01', 85),
+        (datetime.datetime(2018,5,1).strftime("%Y-%m-%d %H:%M:%S"), 80),
+        (datetime.datetime(2018,6,1).strftime("%Y-%m-%d %H:%M:%S"), 85),
     ]
     assert pesos_juan == pesos_esperados
     # id incorrecto

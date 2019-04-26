@@ -22,9 +22,9 @@ def buscar_persona(id_persona):
 
 @reset_tabla
 def pruebas():
-    agregar_persona('juan perez', '15/05/1988', 32165498, 180)
+    agregar_persona('juan perez', datetime.datetime(1988,5,15), 32165498, 180)
     juan = buscar_persona(1)
-    assert juan == (1, 'juan perez',"15/05/1988", 32165498, 180)
+    assert juan == (1, 'juan perez',datetime.datetime(1988,5,15).strftime("%Y-%m-%d %H:%M:%S"), 32165498, 180)
     assert buscar_persona(12345) is False
 
 if __name__ == '__main__':

@@ -46,5 +46,5 @@ def pruebas():
     # registro previo al 2018-05-26
     assert agregar_peso(id_juan, datetime.date(2018,5,16), 80) == False
 
-if __name__ == 'main':
+if __name__ == '__main__':
     pruebas()
