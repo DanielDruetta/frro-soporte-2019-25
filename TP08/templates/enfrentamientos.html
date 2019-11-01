@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Enfrentamientos</title>
+    <link rel="icon" href="https://seeklogo.com/images/U/UEFA_Champions_league-logo-76E1E8D3FA-seeklogo.com.png">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body background="https://images.wallpaperscraft.com/image/champions_league_2015_barcelona_juventus_ball_football_102633_1920x1080.jpg">
+    <nav class="site-header sticky-top py-1">
+  <div class="container d-flex flex-column flex-md-row justify-content-between">
+    <a class="py-2 d-none d-md-inline-block" href="/"><font face="Calibri" color="White">Home</font></a>
+    <a class="py-2 d-none d-md-inline-block" href="/partidosDeHoy"><font face="Calibri" color="White">PartidosHoy</font></a>
+    <a class="py-2 d-none d-md-inline-block" href="/resultadosEnVivo"><font face="Calibri" color="White">En vivo</font></a>
+    <a class="py-2 d-none d-md-inline-block" href="/partidosEquipo"><font face="Calibri" color="White">Partidos Equipo</font></a>
+    <a class="py-2 d-none d-md-inline-block" href="/partidosRondaTemporada"><font face="Calibri" color="White">Partidos Fase-Temporada</font></a>
+    <a class="py-2 d-none d-md-inline-block" href="/goleadores"><font face="Calibri" color="White">Goleadores-Temporada</font></a>
+    <a class="py-2 d-none d-md-inline-block" href="/campeones"><font face="Calibri" color="White">Historial de Campeones</font></a>
+    <a class="py-2 d-none d-md-inline-block" href="/posicionesGrupos"><font face="Calibri" color="White"> Posiciones-Temporada</font></a>
+    <a class="py-2 d-none d-md-inline-block" href="/enfrentamientos"><font face="Calibri" color="White">Historial equipos</font></a>
+    <a class="py-2 d-none d-md-inline-block" href="/fotos"><font face="Calibri" color="White"> Fotos</font></a>
+  </div>
+</nav>
+    <div class="alert alert-primary" role="alert">
+            ¡Trate de ingresar de la forma más completa posible el nombre de los equipos!
+    </div>
+    <form action="/enfrentamientos" method="get">
+        <font face="Calibri" color="White" size="5">
+            <div class="form-row align-items-center">
+                <div class="col-auto my-1">
+                    <label for="equipo1" class="sr-only">Equipo</label>
+                    <input type="text" class="form-control" id="equipo1" name="equipo1" placeholder="Ingrese el equipo 1">
+                </div>
+                <div class="col-auto my-2">
+                    <label for="equipo2" class="sr-only">Equipo</label>
+                    <input type="text" class="form-control" id="equipo2" name="equipo2" placeholder="Ingrese el equipo 2">
+                </div>
+                <div class="col-auto my-3" >
+                    <button type="submit" class="btn btn-secondary">Buscar partidos</button>
+                </div>
+            </div>
+        </font>
+    </form>
+    <div class="panel panel-default">
+        <table class="table table-hover table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">Enfrentamientos entre {{enfrentamientos[0].upper()}} y {{enfrentamientos[1].upper()}}</th>
+                    </tr>
+                </thead>
+        </table>
+            <table class="table table-striped table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">Cantidad de Partidos</th>
+                        <th scope="col">Victorias {{enfrentamientos[0]}}</th>
+                        <th scope="col">Victorias {{enfrentamientos[1]}}</th>
+                        <th scope="col">Cantidad de Empates</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td> {{enfrentamientos[2]}} </td>
+                        <td> {{enfrentamientos[3]}} </td>
+                        <td> {{enfrentamientos[4]}} </td>
+                        <td> {{enfrentamientos[5]}} </td>
+                    </tr>
+                </tbody>
+            </table>
+    </div>
+</body>
+</html>
